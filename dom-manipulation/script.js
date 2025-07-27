@@ -1,22 +1,24 @@
-// Array of quote objects
+// Initial list of quotes
 const quotes = [
   { text: "The only limit to our realization of tomorrow is our doubts of today.", category: "Motivation" },
   { text: "In the middle of every difficulty lies opportunity.", category: "Inspiration" },
   { text: "Life is what happens when you're busy making other plans.", category: "Life" }
 ];
 
-// DOM element references
+// Get DOM elements
 const quoteDisplay = document.getElementById("quoteDisplay");
 const newQuoteBtn = document.getElementById("newQuote");
 
-// Show a random quote (no category filtering as not required in instructions)
+// Function to show a random quote
 function showRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const quote = quotes[randomIndex];
-  quoteDisplay.textContent = `"${quote.text}" - ${quote.category}`;
+
+  // Use innerHTML as required
+  quoteDisplay.innerHTML = `<p>"${quote.text}"</p><small>Category: ${quote.category}</small>`;
 }
 
-// Add new quote to the array and update DOM
+// Function to add a new quote
 function addQuote() {
   const quoteText = document.getElementById("newQuoteText").value.trim();
   const quoteCategory = document.getElementById("newQuoteCategory").value.trim();
@@ -32,11 +34,13 @@ function addQuote() {
   };
 
   quotes.push(newQuote);
+
+  // Clear input fields
   document.getElementById("newQuoteText").value = "";
   document.getElementById("newQuoteCategory").value = "";
 
   alert("New quote added!");
 }
 
-// Event listener for showing quote
+// Event listener for the "Show New Quote" button
 newQuoteBtn.addEventListener("click", showRandomQuote);
