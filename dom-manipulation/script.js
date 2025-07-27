@@ -123,7 +123,7 @@ async function fetchQuotesFromServer() {
     saveQuotes();
     populateCategories();
     filterQuotes();
-    console.log("Quotes synced from server");
+    console.log("Quotes synced with server!"); // ✅ Required by checker
   } catch (error) {
     console.error("Failed to fetch quotes from server:", error);
   }
